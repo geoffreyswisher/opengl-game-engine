@@ -1,0 +1,1 @@
+g++ ../main.cpp ../display.cpp -lSDL2 -lGLEW -lGL -o main
