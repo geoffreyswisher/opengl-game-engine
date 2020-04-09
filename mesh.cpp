@@ -1,6 +1,10 @@
 #include "mesh.h"
 #include <GL/glew.h>
 
+// The mesh is responsible for sending vertex data in the proper format to the gpu to
+// be stored and processed
+
+// Constructor
 Mesh::Mesh(Vertex* vertices, unsigned int numVertices) {
     drawCount = numVertices;
 
@@ -17,10 +21,12 @@ Mesh::Mesh(Vertex* vertices, unsigned int numVertices) {
     glBindVertexArray(0);
 }
 
+// Deconstructor
 Mesh::~Mesh() {
     glDeleteVertexArrays(1, &vertexArrayObject);
 }
 
+// Draw vertex arrays to the screen, i think
 void Mesh::Draw() {
     glBindVertexArray(vertexArrayObject);
 
