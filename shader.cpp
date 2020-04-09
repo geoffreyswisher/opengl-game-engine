@@ -1,15 +1,15 @@
-#include "shader.h"
+#include "headers/shader.h"
 #include <fstream>
 #include <iostream>
 
 
 // Constructor
-Shader::Shader(const std::string& filename) {
+Shader::Shader(const std::string& vertexShaderPath, const std::string& fragmentShaderPath) {
     program = glCreateProgram();  // intialization
 
     // creates shader with specified type of shader from filename
-    shaders[0] = CreateShader(LoadShader(filename + ".vs"), GL_VERTEX_SHADER);
-    shaders[1] = CreateShader(LoadShader(filename + ".fs"), GL_FRAGMENT_SHADER);
+    shaders[0] = CreateShader(LoadShader(vertexShaderPath), GL_VERTEX_SHADER);
+    shaders[1] = CreateShader(LoadShader(fragmentShaderPath), GL_FRAGMENT_SHADER);
 
     // attaches the created shaders to the shader program
     for (unsigned int i = 0; i < NUM_SHADERS; i ++) {
@@ -43,6 +43,7 @@ Shader::~Shader() {
 // Binds the screen to the given shader program, I think
 void Shader::Bind() {
     glUseProgram(program);
+    glUniform1i(glGetUniformLocation(program, "inTexture"), 0);
 }
 
 

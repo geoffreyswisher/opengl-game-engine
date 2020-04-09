@@ -8,15 +8,17 @@
 
 class Vertex {
     public:
-        Vertex(const glm::vec3& pos, const glm::vec3& color) {
+        Vertex(const glm::vec3& pos, const glm::vec3& color, const glm::vec2& texture) {
             this->pos = pos;
             this->color = color;
+            this->texture = texture;
         }
 
     protected:
     private:
         glm::vec3 pos;
         glm::vec3 color;
+        glm::vec2 texture;
 };
 
 

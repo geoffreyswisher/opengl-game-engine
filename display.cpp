@@ -1,4 +1,4 @@
-#include "display.h"
+#include "headers/display.h"
 #include <GL/glew.h>
 #include <iostream>
 
@@ -11,7 +11,7 @@ Display::Display(int width, int height) {
     // Double window so the one being displayed is not currently being drawn on
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-    window = SDL_CreateWindow("Window", 500, 500, width, height, SDL_WINDOW_OPENGL);
+    window = SDL_CreateWindow("Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
 
     // Context allows for GPU to have partial control over the window
     // OS no longer has full control over the window

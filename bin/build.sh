@@ -1,1 +1,1 @@
-g++ ../main.cpp ../display.cpp ../mesh.cpp ../shader.cpp -lSDL2 -lGLEW -lGL -o main
+g++ ../main.cpp ../display.cpp ../mesh.cpp ../shader.cpp ../textureLoader.cpp -lSDL2 -lGLEW -lGL -o main

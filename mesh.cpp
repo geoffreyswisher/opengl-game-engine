@@ -1,4 +1,4 @@
-#include "mesh.h"
+#include "headers/mesh.h"
 #include <GL/glew.h>
 
 // The mesh is responsible for sending vertex data in the proper format to the gpu to
@@ -16,10 +16,13 @@ Mesh::Mesh(Vertex* vertices, unsigned int numVertices) {
     glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(vertices[0]), vertices, GL_STATIC_DRAW);
 
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6*sizeof(float), 0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), 0);
 
     glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6*sizeof(float), (void*)(3*sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(3*sizeof(float)));
+
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(6*sizeof(float)));
 
     glBindVertexArray(0);
 }
@@ -34,6 +37,7 @@ void Mesh::Draw() {
     glBindVertexArray(vertexArrayObject);
 
     glDrawArrays(GL_TRIANGLES, 0, drawCount);
+    //glDrawElements(GL_TRIANGLES, drawCount, GL_UNSIGNED_INT, 0);
 
     glBindVertexArray(0);
 }
