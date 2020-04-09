@@ -16,8 +16,9 @@ Shader::Shader(const std::string& filename) {
         glAttachShader(program, shaders[i]);
     }
 
-    // mesh thingy, idrk
+    // for the shaders in the program: attribute position is the first attribute
     glBindAttribLocation(program, 0, "position");
+    glBindAttribLocation(program, 1, "color");
 
     // compiles the program with shaders into one program
     glLinkProgram(program);

@@ -15,19 +15,16 @@ int main() {
 	Shader shader("../shaders/basicShader");
 
 	Vertex vertices[] = {
-		Vertex{glm::vec3{-0.5, -0.5, 0}},
-		Vertex{glm::vec3{0, 0.5, 0}},
-		Vertex{glm::vec3{0.5, -0.5, 0}},
-		Vertex{glm::vec3{1, 0, 0}},
-		Vertex{glm::vec3{0, 0.5, 0}},
-		Vertex{glm::vec3{0.5, -1, 0}}
+		Vertex{glm::vec3{-0.5, -0.5, 0}, glm::vec3{1.0, 0.0, 0.0}},
+		Vertex{glm::vec3{0, 0.5, 0}, glm::vec3{0.0, 1.0, 0.0}},
+		Vertex{glm::vec3{0.5, -0.5, 0}, glm::vec3{0.0, 0.0, 1.0}},
 	};
 
 	Mesh mesh(vertices, sizeof(vertices)/sizeof(vertices[0]));
 
 	while (!display.IsClosed()) {
 
-		display.ClearScreen(0.5f, 0.2f, 0.4f, 1.0f);
+		display.ClearScreen(0.5f, 0.5f, 0.5f, 1.0f);
 
 		mesh.Draw();
 
