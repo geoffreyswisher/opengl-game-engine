@@ -18,7 +18,7 @@ Shader::Shader(const std::string& vertexShaderPath, const std::string& fragmentS
 
     // for the shaders in the program: attribute position is the first attribute
     glBindAttribLocation(program, 0, "position");
-    glBindAttribLocation(program, 1, "color");
+    glBindAttribLocation(program, 1, "texture");
 
     // compiles the program with shaders into one program
     glLinkProgram(program);
@@ -43,7 +43,12 @@ Shader::~Shader() {
 // Binds the screen to the given shader program, I think
 void Shader::Bind() {
     glUseProgram(program);
-    glUniform1i(glGetUniformLocation(program, "inTexture"), 0);
+    //glUniform1i(glGetUniformLocation(program, "inTexture"), 0);
+}
+
+
+void Shader::SetTexture() {
+
 }
 
 

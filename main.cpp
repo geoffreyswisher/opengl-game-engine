@@ -18,12 +18,12 @@ int main() {
 	TextureLoader textureLoader("../textures/container.jpg");
 
 	Vertex vertices[] = {
-		Vertex{glm::vec3{-1, -1, 0}, glm::vec3{1.0, 0.0, 0.0}, glm::vec2{-0.5, -0.5}},
-		Vertex{glm::vec3{-1, 1, 0}, glm::vec3{0.0, 1.0, 0.0}, glm::vec2{-0.5, 0.5}},
-		Vertex{glm::vec3{1, -1, 0}, glm::vec3{0.0, 0.0, 1.0}, glm::vec2{0.5, -0.5}},
-		Vertex{glm::vec3{-1, 1, 0}, glm::vec3{1.0, 0.0, 0.0}, glm::vec2{-0.5, 0.5}},
-		Vertex{glm::vec3{1, 1, 0}, glm::vec3{0.0, 1.0, 0.0}, glm::vec2{0.5, 0.5}},
-		Vertex{glm::vec3{1, -1, 0}, glm::vec3{0.0, 0.0, 1.0}, glm::vec2{0.5, -0.5}}
+		Vertex{glm::vec3{-0.5, -0.5, 0}, glm::vec2{0, 0}},
+		Vertex{glm::vec3{0.5, -0.5, 0}, glm::vec2{1, 0}},
+		Vertex{glm::vec3{0.5, 0.5, 0}, glm::vec2{1, 1}},
+		Vertex{glm::vec3{-0.5, -0.5, 0}, glm::vec2{0, 0}},
+		Vertex{glm::vec3{0.5, 0.5, 0}, glm::vec2{1, 1}},
+		Vertex{glm::vec3{-0.5, 0.5, 0}, glm::vec2{0, 1}}
 	};
 
 	Mesh mesh(vertices, sizeof(vertices)/sizeof(vertices[0]));
@@ -32,9 +32,9 @@ int main() {
 
 		display.ClearScreen(0.5f, 0.5f, 0.5f, 1.0f);
 
-		mesh.Draw();
-
 		shader.Bind();
+		textureLoader.Bind(0);
+		mesh.Draw();
 
 		display.Update();
 	}

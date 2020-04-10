@@ -9,6 +9,7 @@ class Shader {
         Shader(const std::string& vertexShaderPath, const std::string& fragmentShaderPath);
 
         void Bind();
+        void SetTexture();
 
         std::string LoadShader(const std::string& fileName);
         void CheckShaderError(GLuint shader, GLuint flag, bool isProgram, const std::string& errorMessage);
