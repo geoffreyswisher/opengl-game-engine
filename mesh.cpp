@@ -15,32 +15,43 @@ Mesh::Mesh(Vertex* vertices, unsigned int numVertices) {
 
     std::vector<glm::vec3> positions;
     std::vector<glm::vec2> textures;
+    std::vector<glm::vec3> color;
 
     positions.reserve(numVertices);
     textures.reserve(numVertices);
+    color.reserve(numVertices);
 
     for (unsigned int i=0; i<numVertices; i++) {
         positions.push_back(*vertices[i].GetPos());
         textures.push_back(*vertices[i].GetTexture());
+        color.push_back(*vertices[i].GetColor());
     }
 
     glGenBuffers(NUM_BUFFERS, vertexArrayBuffers);
+
+    // Position
     glBindBuffer(GL_ARRAY_BUFFER, vertexArrayBuffers[POSITION_VB]);
     glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(positions[0]), &positions[0], GL_STATIC_DRAW);
 
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 
-
+    // Texture
     glBindBuffer(GL_ARRAY_BUFFER, vertexArrayBuffers[TEXTURE_VB]);
     glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(textures[0]), &textures[0], GL_STATIC_DRAW);
 
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
-    glBindVertexArray(0);
+    // Color
+    glBindBuffer(GL_ARRAY_BUFFER, vertexArrayBuffers[COLOR_VB]);
+    glBufferData(GL_ARRAY_BUFFER, numVertices * sizeof(color[0]), &color[0], GL_STATIC_DRAW);
 
-    
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+
+    glBindVertexArray(0);
 }
 
 // Deconstructor

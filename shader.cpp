@@ -19,6 +19,7 @@ Shader::Shader(const std::string& vertexShaderPath, const std::string& fragmentS
     // for the shaders in the program: attribute position is the first attribute
     glBindAttribLocation(program, 0, "position");
     glBindAttribLocation(program, 1, "texture");
+    glBindAttribLocation(program, 2, "color");
 
     // compiles the program with shaders into one program
     glLinkProgram(program);

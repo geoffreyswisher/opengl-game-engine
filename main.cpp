@@ -18,12 +18,12 @@ int main() {
 	TextureLoader textureLoader("../textures/container.jpg");
 
 	Vertex vertices[] = {
-		Vertex{glm::vec3{-0.5, -0.5, 0}, glm::vec2{0, 0}},
-		Vertex{glm::vec3{0.5, -0.5, 0}, glm::vec2{1, 0}},
-		Vertex{glm::vec3{0.5, 0.5, 0}, glm::vec2{1, 1}},
-		Vertex{glm::vec3{-0.5, -0.5, 0}, glm::vec2{0, 0}},
-		Vertex{glm::vec3{0.5, 0.5, 0}, glm::vec2{1, 1}},
-		Vertex{glm::vec3{-0.5, 0.5, 0}, glm::vec2{0, 1}}
+		Vertex{glm::vec3{-0.5, -0.5, 0}, glm::vec2{0, 0}, glm::vec3{1, 0, 0}},
+		Vertex{glm::vec3{0.5, -0.5, 0}, glm::vec2{1, 0}, glm::vec3{0, 1, 0}},
+		Vertex{glm::vec3{0.5, 0.5, 0}, glm::vec2{1, 1}, glm::vec3{0, 0, 1}},
+		Vertex{glm::vec3{-0.5, -0.5, 0}, glm::vec2{0, 0}, glm::vec3{1, 0, 0}},
+		Vertex{glm::vec3{0.5, 0.5, 0}, glm::vec2{1, 1}, glm::vec3{0, 0, 1}},
+		Vertex{glm::vec3{-0.5, 0.5, 0}, glm::vec2{0, 1}, glm::vec3{1, 1, 1}}
 	};
 
 	Mesh mesh(vertices, sizeof(vertices)/sizeof(vertices[0]));
